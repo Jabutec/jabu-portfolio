@@ -13,7 +13,7 @@ export default function RootLayout({
           
 
           {/* Main Editor */}
-          <div style={{ flex: 1, padding: "1rem" }}>
+          <div style={{ flex: 1, width: "100%", padding: "0.5rem" }}>
             {children}
           </div>
 

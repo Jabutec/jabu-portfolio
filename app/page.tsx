@@ -128,22 +128,22 @@ export default function Home() {
                   name: "Beauty Platform",
                   desc: "A full-featured salon booking and inspiration platform where users can discover styles, book appointments, and stylists can manage their portfolios.",
                   stack: ["Next.js", "Node.js", "Cloudinary"],
-                  demo: "#",
-                  github: "#",
+                  demo: "https://github.com/Jabutec/kefresh",
+                  github: "https://github.com/Jabutec/kefresh",
                 },
                 {
                   name: "Student Portal",
                   desc: "An integrated learning system combining theory modules and practical exercises with progress tracking and assessment tools for students and educators.",
                   stack: ["React", "Node.js", "MySQL"],
-                  demo: "#",
-                  github: "#",
+                  demo: "https://github.com/Jabutec/ai-agents",
+                  github: "https://github.com/Jabutec/ai-agents",
                 },
                 {
                   name: "Data Dashboard",
                   desc: "An analytics dashboard surfacing labour market trends and inflation insights through interactive visualisations built with Python and Power BI.",
                   stack: ["Python", "Power BI"],
-                  demo: "#",
-                  github: "#",
+                  demo: "https://github.com/Jabutec/Labour-Market-Trends-Business-Impact-Analysis",
+                  github: "https://github.com/Jabutec/Labour-Market-Trends-Business-Impact-Analysis",
                 },
               ].map((project) => (
                 <div
@@ -170,12 +170,6 @@ export default function Home() {
                   </div>
 
                   <div className="flex gap-2 mt-auto pt-1">
-                    <a href={project.demo} target="_blank" className="flex-1 flex items-center justify-center gap-[6px] h-[34px] rounded-lg bg-blue-800 border border-blue-500 text-blue-200 font-mono text-[11.5px] hover:bg-blue-600 hover:text-white transition duration-150">
-                      <svg className="w-[13px] h-[13px] fill-current" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                      Live Demo
-                    </a>
                     <a href={project.github} target="_blank" className="flex-1 flex items-center justify-center gap-[6px] h-[34px] rounded-lg bg-[#1a2744] border border-[#2a3a60] text-blue-400 font-mono text-[11.5px] hover:bg-blue-800 hover:border-blue-500 hover:text-white transition duration-150">
                       <svg className="w-[13px] h-[13px] fill-current" viewBox="0 0 24 24">
                         <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />

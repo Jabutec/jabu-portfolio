@@ -8,12 +8,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ margin: 0, fontFamily: "monospace", background: "#0d0d0d", color: "#00ff9f" }}>
-        <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <div style={{ width: "100%", minHeight: "100vh" }}>
           
           
 
           {/* Main Editor */}
-          <div style={{ flex: 1, width: "100%", padding: "0.5rem" }}>
+          <div style={{ width: "100%", padding: "10px", boxSizing: "border-box" }}>
             {children}
           </div>
 

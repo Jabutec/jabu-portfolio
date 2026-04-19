@@ -1,0 +1,35 @@
+name: Refresh Intelligence Data
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install playwright pandas requests
+          playwright install chromium
+
+      - name: Run scraper
+        run: python scripts/scraper.py
+
+      - name: Commit updated data
+        run: |
+          git config --global user.name "intelligence-bot"
+          git config --global user.email "bot@jabu-portfolio.dev"
+          git add data/
+          git diff --staged --quiet || git commit -m "data: refresh signals $(date +'%Y-%m-%d')"
+          git push

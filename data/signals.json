@@ -1,0 +1,27 @@
+{
+  "lastUpdated": "2026-04-19",
+  "transferMarket": {
+    "fnb": { "q4_2025": 1101, "q1_2026": 847, "change": -31 },
+    "absa": { "q4_2025": 890, "q1_2026": 654, "change": -27 },
+    "standardBank": { "q4_2025": 1020, "q1_2026": 836, "change": -18 },
+    "nedbank": { "q4_2025": 760, "q1_2026": 592, "change": -22 },
+    "tymeBank": { "q4_2025": 210, "q1_2026": 302, "change": 44 },
+    "yoco": { "q4_2025": 180, "q1_2026": 236, "change": 31 },
+    "peachPayments": { "q4_2025": 95, "q1_2026": 112, "change": 18 }
+  },
+  "ghostTable": {
+    "fnb": 67,
+    "absa": 88,
+    "standardBank": 54,
+    "nedbank": 61,
+    "tymeBank": 9,
+    "yoco": 14
+  },
+  "skillPremium": {
+    "go": 28,
+    "rust": 34,
+    "kubernetes": 22,
+    "terraform": 19,
+    "mlops": 31
+  }
+}

@@ -3,8 +3,8 @@
   "transferMarket": {
     "fnb": {
       "q4_2025": 1101,
-      "q1_2026": 1,
-      "change": 0
+      "q1_2026": 13,
+      "change": 1200
     },
     "absa": {
       "q4_2025": 890,
@@ -24,7 +24,7 @@
     "tymeBank": {
       "q4_2025": 210,
       "q1_2026": 2,
-      "change": -60
+      "change": 0
     },
     "yoco": {
       "q4_2025": 180,
@@ -34,7 +34,7 @@
     "peachPayments": {
       "q4_2025": 95,
       "q1_2026": 7,
-      "change": 250
+      "change": 0
     }
   },
   "ghostTable": {
@@ -51,5 +51,11 @@
     "kubernetes": 22,
     "terraform": 19,
     "mlops": 31
-  }
+  },
+  "leagueTable": {},
+  "sources": [
+    "PNet",
+    "Careers24",
+    "Graduates24"
+  ]
 }

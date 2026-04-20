@@ -8,15 +8,22 @@ OPPORTUNITIES_PATH = os.path.join(
     os.path.dirname(__file__), "../data/opportunities.json"
 )
 
-# ── Targets ──────────────────────────────────────────────
-TARGETS = {
-    "fnb": "https://www.fnb.co.za/careers/",
-    "absa": "https://www.absa.africa/absaafrica/careers/",
-    "standardBank": "https://careers.standardbank.com/",
-    "nedbank": "https://www.nedbank.co.za/content/nedbank/desktop/gt/en/careers.html",
-    "tymeBank": "https://www.tymebank.co.za/careers/",
-    "yoco": "https://www.yoco.com/za/careers/",
-    "peachPayments": "https://www.peachpayments.com/careers",
+# ── Job boards ────────────────────────────────────────────
+BOARDS = [
+    "https://www.pnet.co.za/jobs/{query}/",
+    "https://www.careers24.com/jobs/{query}/",
+    "https://www.graduates24.com/jobs/{query}/",
+]
+
+# ── Companies to track ────────────────────────────────────
+COMPANIES = {
+    "fnb": "fnb",
+    "absa": "absa",
+    "standardBank": "standard-bank",
+    "nedbank": "nedbank",
+    "tymeBank": "tymebank",
+    "yoco": "yoco",
+    "peachPayments": "peach-payments",
 }
 
 # ── Blog intelligence keywords ────────────────────────────
@@ -59,7 +66,7 @@ TECH_KEYWORDS = [
     "bigquery",
 ]
 
-# ── Your personal job target keywords ────────────────────
+# ── Personal job target keywords ──────────────────────────
 MY_KEYWORDS = [
     "systems developer",
     "systems development",
@@ -78,13 +85,11 @@ MY_KEYWORDS = [
 ]
 
 
-# ── Scraper ───────────────────────────────────────────────
-def scrape_company(page, company: str, url: str):
+# ── Scrape a single URL ───────────────────────────────────
+def scrape_url(page, url: str):
     try:
         page.goto(url, timeout=40000, wait_until="networkidle")
-        page.wait_for_timeout(5000)
-
-        # scroll down to trigger lazy loading
+        page.wait_for_timeout(4000)
         page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
         page.wait_for_timeout(2000)
         page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
@@ -92,48 +97,70 @@ def scrape_company(page, company: str, url: str):
 
         content = page.inner_text("body").lower()
         lines = [l.strip() for l in content.split("\n") if l.strip()]
-
-        tech_count = sum(1 for line in lines if any(kw in line for kw in TECH_KEYWORDS))
-
-        matches = []
-        for line in lines:
-            if any(kw in line for kw in MY_KEYWORDS):
-                if 8 < len(line) < 120:
-                    matches.append(
-                        {
-                            "company": company,
-                            "snippet": line.title(),
-                            "url": url,
-                            "found": str(date.today()),
-                        }
-                    )
-
-        print(f"  {company}: {tech_count} tech roles, {len(matches)} personal matches")
-        return tech_count, matches
+        return lines
 
     except Exception as e:
-        print(f"  {company}: failed — {e}")
-        return -1, []
+        print(f"    failed {url} — {e}")
+        return []
+
+
+# ── Scrape all boards for one company ────────────────────
+def scrape_company(page, company: str, query: str):
+    all_lines = []
+    sources_hit = 0
+
+    for board in BOARDS:
+        url = board.format(query=query)
+        print(f"    scraping {url}")
+        lines = scrape_url(page, url)
+        if lines:
+            all_lines.extend(lines)
+            sources_hit += 1
+
+    # deduplicate lines across boards
+    all_lines = list(dict.fromkeys(all_lines))
+
+    tech_count = sum(1 for line in all_lines if any(kw in line for kw in TECH_KEYWORDS))
+
+    matches = []
+    for line in all_lines:
+        if any(kw in line for kw in MY_KEYWORDS):
+            if 8 < len(line) < 120:
+                matches.append(
+                    {
+                        "company": company,
+                        "snippet": line.title(),
+                        "url": BOARDS[0].format(query=query),
+                        "found": str(date.today()),
+                    }
+                )
+
+    print(
+        f"  {company}: {tech_count} tech roles across {sources_hit} boards, {len(matches)} personal matches"
+    )
+    return tech_count, matches
 
 
 def run():
-    print("Starting scraper...")
+    print("Starting scraper — PNet + Careers24 + Graduates24...")
     all_tech_counts = {}
     all_opportunities = []
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
+        page = browser.new_page(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
 
-        for company, url in TARGETS.items():
+        for company, query in COMPANIES.items():
             print(f"Scraping {company}...")
-            tech_count, matches = scrape_company(page, company, url)
+            tech_count, matches = scrape_company(page, company, query)
             all_tech_counts[company] = tech_count
             all_opportunities.extend(matches)
 
         browser.close()
 
-    # ── Load existing signals to preserve history ─────────
+    # ── Load existing signals ─────────────────────────────
     try:
         with open(SIGNALS_PATH, "r") as f:
             existing = json.load(f)
@@ -145,7 +172,7 @@ def run():
     transfer_market = {}
     for company, current in all_tech_counts.items():
         previous = prev.get(company, {}).get("q1_2026", current)
-        if current == -1:
+        if current == -1 or current == 0:
             current = previous
         change = round(((current - previous) / previous) * 100) if previous else 0
         transfer_market[company] = {
@@ -159,21 +186,22 @@ def run():
         "transferMarket": transfer_market,
         "ghostTable": existing.get("ghostTable", {}),
         "skillPremium": existing.get("skillPremium", {}),
+        "leagueTable": existing.get("leagueTable", {}),
+        "sources": ["PNet", "Careers24", "Graduates24"],
     }
 
     with open(SIGNALS_PATH, "w") as f:
         json.dump(signals_output, f, indent=2)
 
-    print(f"signals.json updated.")
+    print("signals.json updated.")
 
-    # ── Load existing opportunities to preserve history ───
+    # ── Load existing opportunities ───────────────────────
     try:
         with open(OPPORTUNITIES_PATH, "r") as f:
             existing_opps = json.load(f)
     except Exception:
         existing_opps = []
 
-    # Merge — avoid duplicates by company + snippet combo
     existing_keys = {(o["company"], o["snippet"]) for o in existing_opps}
     new_opps = [
         o
@@ -182,8 +210,6 @@ def run():
     ]
 
     merged = new_opps + existing_opps
-
-    # Keep only the latest 100 opportunities
     merged = merged[:100]
 
     with open(OPPORTUNITIES_PATH, "w") as f:

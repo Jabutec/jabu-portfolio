@@ -1,13 +1,41 @@
 {
-  "lastUpdated": "2026-04-19",
+  "lastUpdated": "2026-04-20",
   "transferMarket": {
-    "fnb": { "q4_2025": 1101, "q1_2026": 847, "change": -31 },
-    "absa": { "q4_2025": 890, "q1_2026": 654, "change": -27 },
-    "standardBank": { "q4_2025": 1020, "q1_2026": 836, "change": -18 },
-    "nedbank": { "q4_2025": 760, "q1_2026": 592, "change": -22 },
-    "tymeBank": { "q4_2025": 210, "q1_2026": 302, "change": 44 },
-    "yoco": { "q4_2025": 180, "q1_2026": 236, "change": 31 },
-    "peachPayments": { "q4_2025": 95, "q1_2026": 112, "change": 18 }
+    "fnb": {
+      "q4_2025": 1101,
+      "q1_2026": 1,
+      "change": 0
+    },
+    "absa": {
+      "q4_2025": 890,
+      "q1_2026": 1,
+      "change": 0
+    },
+    "standardBank": {
+      "q4_2025": 1020,
+      "q1_2026": 7,
+      "change": 40
+    },
+    "nedbank": {
+      "q4_2025": 760,
+      "q1_2026": 4,
+      "change": 0
+    },
+    "tymeBank": {
+      "q4_2025": 210,
+      "q1_2026": 5,
+      "change": 67
+    },
+    "yoco": {
+      "q4_2025": 180,
+      "q1_2026": 10,
+      "change": 0
+    },
+    "peachPayments": {
+      "q4_2025": 95,
+      "q1_2026": 2,
+      "change": 0
+    }
   },
   "ghostTable": {
     "fnb": 67,

@@ -14,7 +14,7 @@
     "standardBank": {
       "q4_2025": 1020,
       "q1_2026": 7,
-      "change": 40
+      "change": 0
     },
     "nedbank": {
       "q4_2025": 760,
@@ -23,8 +23,8 @@
     },
     "tymeBank": {
       "q4_2025": 210,
-      "q1_2026": 5,
-      "change": 67
+      "q1_2026": 2,
+      "change": -60
     },
     "yoco": {
       "q4_2025": 180,
@@ -33,8 +33,8 @@
     },
     "peachPayments": {
       "q4_2025": 95,
-      "q1_2026": 2,
-      "change": 0
+      "q1_2026": 7,
+      "change": 250
     }
   },
   "ghostTable": {
@@ -51,36 +51,5 @@
     "kubernetes": 22,
     "terraform": 19,
     "mlops": 31
-  },
-  "leagueTable": {
-    "month": "April 2026",
-    "innovation": [
-      { "rank": 1, "company": "TymeBank", "score": 87, "change": "up" },
-      { "rank": 2, "company": "Yoco", "score": 82, "change": "up" },
-      { "rank": 3, "company": "Peach Payments", "score": 76, "change": "same" },
-      { "rank": 4, "company": "FNB", "score": 61, "change": "down" },
-      { "rank": 5, "company": "Standard Bank", "score": 54, "change": "down" },
-      { "rank": 6, "company": "Absa", "score": 49, "change": "same" },
-      { "rank": 7, "company": "Nedbank", "score": 41, "change": "down" }
-    ],
-    "legacy": [
-      { "rank": 1, "company": "Nedbank", "score": 78, "change": "same" },
-      { "rank": 2, "company": "Absa", "score": 71, "change": "up" },
-      { "rank": 3, "company": "Standard Bank", "score": 66, "change": "same" },
-      { "rank": 4, "company": "FNB", "score": 58, "change": "down" },
-      { "rank": 5, "company": "TymeBank", "score": 12, "change": "same" },
-      { "rank": 6, "company": "Yoco", "score": 8, "change": "same" },
-      { "rank": 7, "company": "Peach Payments", "score": 5, "change": "same" }
-    ],
-    "gradFriendly": [
-      { "rank": 1, "company": "FNB", "score": 74, "change": "up" },
-      { "rank": 2, "company": "Standard Bank", "score": 68, "change": "same" },
-      { "rank": 3, "company": "TymeBank", "score": 65, "change": "up" },
-      { "rank": 4, "company": "Absa", "score": 60, "change": "down" },
-      { "rank": 5, "company": "Nedbank", "score": 52, "change": "same" },
-      { "rank": 6, "company": "Yoco", "score": 41, "change": "up" },
-      { "rank": 7, "company": "Peach Payments", "score": 28, "change": "same" }
-    ]
   }
 }
-

@@ -80,14 +80,16 @@ MY_KEYWORDS = [
 
 # ── Scraper ───────────────────────────────────────────────
 def scrape_company(page, company: str, url: str):
-    """
-    Returns:
-      - tech_count: int for signals.json
-      - matches: list of opportunity dicts for opportunities.json
-    """
     try:
-        page.goto(url, timeout=30000, wait_until="domcontentloaded")
-        page.wait_for_timeout(3000)
+        page.goto(url, timeout=40000, wait_until="networkidle")
+        page.wait_for_timeout(5000)
+
+        # scroll down to trigger lazy loading
+        page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+        page.wait_for_timeout(2000)
+        page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+        page.wait_for_timeout(2000)
+
         content = page.inner_text("body").lower()
         lines = [l.strip() for l in content.split("\n") if l.strip()]
 
@@ -96,7 +98,6 @@ def scrape_company(page, company: str, url: str):
         matches = []
         for line in lines:
             if any(kw in line for kw in MY_KEYWORDS):
-                # skip lines that are too short or too long to be job titles
                 if 8 < len(line) < 120:
                     matches.append(
                         {

@@ -28,25 +28,33 @@ export default function TransferChart({ data }: Props) {
         >
         <XAxis
             dataKey="company"
-            tick={{ fill: "rgba(0,255,159,0.75)", fontSize: 11, fontFamily: "monospace" }}
-            axisLine={{ stroke: "rgba(0,255,159,0.15)" }}
+            tick={{ fill: "#8b949e", fontSize: 11, fontFamily: "Google Sans, sans-serif" }}
+            axisLine={{ stroke: "rgba(255,255,255,0.08)" }}
             tickLine={false}
-        />
-        <YAxis
-            tick={{ fill: "rgba(0,255,159,0.75)", fontSize: 11, fontFamily: "monospace" }}
+          />
+          <YAxis
+            tick={{ fill: "#8b949e", fontSize: 11, fontFamily: "Google Sans, sans-serif" }}
             axisLine={false}
             tickLine={false}
             tickFormatter={(v) => `${v}%`}
-        />
+          />
           <Tooltip
-            cursor={{ fill: "rgba(0,255,159,0.04)" }}
+            cursor={{ fill: "rgba(255,255,255,0.04)" }}
             contentStyle={{
-              background: "#080d1a",
-              border: "0.5px solid rgba(0,255,159,0.2)",
+              background: "#161b22",
+              border: "0.5px solid rgba(255,255,255,0.1)",
               borderRadius: "6px",
-              fontFamily: "monospace",
-              fontSize: "12px",
-              color: "#00ff9f",
+              fontFamily: "Google Sans, sans-serif",
+              fontSize: "13px",
+              color: "#e6edf3",
+            }}
+            labelStyle={{ 
+              color: "#8b949e", 
+              marginBottom: "4px",
+              fontFamily: "Google Sans, sans-serif",
+            }}
+            itemStyle={{
+              color: "#e6edf3",
             }}
             formatter={(value: unknown) => [`${value}%`, "Change"]}
           />

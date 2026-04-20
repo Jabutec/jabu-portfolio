@@ -112,7 +112,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 72px;
   background: #080d1a;
   border-top: 0.5px solid rgba(0, 255, 159, 0.12);
   justify-content: space-around;
@@ -124,11 +124,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  gap: 5px;
   color: rgba(0, 255, 159, 0.4);
   text-decoration: none;
   transition: color 0.15s ease;
-  padding: 8px 16px;
+  padding: 8px 20px;
+}
+.tab-icon {
+  font-size: 24px;
 }
 
 .tab-item:hover {
@@ -136,7 +139,7 @@ body {
 }
 
 .tab-label {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   font-family: monospace;
 }
@@ -585,8 +588,26 @@ body {
 .lt-change.same { color: #8b949e; }
 
 @media (max-width: 768px) {
-  .lt-page {
-    padding: 1.5rem 1rem;
+  .audit-post-body {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .audit-post-title {
+    font-size: 20px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding-bottom: 80px;
+  }
+
+  .tab-bar {
+    display: flex;
+  }
+
+  .sidebar {
+    display: none;
   }
 }
 .sidebar-sublink {

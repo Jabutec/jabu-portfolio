@@ -55,6 +55,14 @@ body {
   letter-spacing: 0.05em;
   transition: all 0.15s ease;
 }
+.sidebar-link-active {
+  color: #00ff9f;
+  background: rgba(0, 255, 159, 0.08);
+}
+
+.tab-item-active {
+  color: #00ff9f;
+}
 
 .sidebar-link:hover {
   color: #00ff9f;
@@ -642,4 +650,122 @@ body {
 
 .lt-shortcut-link:hover {
   opacity: 1;
+}
+/* ── About page ── */
+.about-page {
+  padding: 2.5rem 2rem;
+  max-width: 680px;
+}
+
+.about-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.5px solid rgba(0, 255, 159, 0.12);
+}
+
+.about-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #00ff9f;
+  margin: 8px 0 6px;
+  font-family: "Google Sans", sans-serif;
+}
+
+.about-title {
+  font-size: 14px;
+  color: #e6edf3;
+  margin: 0 0 4px;
+  font-family: "Google Sans", sans-serif;
+}
+
+.about-location {
+  font-size: 13px;
+  color: #8b949e;
+  margin: 0;
+  font-family: "Google Sans", sans-serif;
+}
+
+.about-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.04);
+}
+
+.about-section:last-child {
+  border-bottom: none;
+}
+
+.about-section-title {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8b949e;
+  margin: 0 0 1rem;
+  font-family: "Google Sans", sans-serif;
+}
+
+.about-body {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #c9d1d9;
+  margin: 0 0 1rem;
+  font-family: "Google Sans", sans-serif;
+}
+
+.about-body:last-child {
+  margin-bottom: 0;
+}
+
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.about-skill {
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 0.5px solid rgba(0, 255, 159, 0.2);
+  color: rgba(0, 255, 159, 0.7);
+  font-family: monospace;
+  letter-spacing: 0.04em;
+}
+
+.about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-link {
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  color: #c9d1d9;
+  text-decoration: none;
+  font-family: "Google Sans", sans-serif;
+  transition: all 0.15s;
+}
+
+.about-link:hover {
+  border-color: rgba(0, 255, 159, 0.3);
+  color: #00ff9f;
+}
+
+.about-link-accent {
+  background: rgba(0, 255, 159, 0.08);
+  border-color: rgba(0, 255, 159, 0.3);
+  color: #00ff9f;
+}
+
+.about-link-accent:hover {
+  background: rgba(0, 255, 159, 0.15);
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 1.5rem 1rem;
+  }
 }

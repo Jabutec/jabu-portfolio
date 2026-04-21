@@ -1,13 +1,41 @@
 {
-  "lastUpdated": "2026-04-20",
+  "lastUpdated": "2026-04-21",
   "transferMarket": {
-    "fnb":          { "q4_2025": 13, "q1_2026": 13, "change": 0 },
-    "absa":         { "q4_2025": 1,  "q1_2026": 1,  "change": 0 },
-    "standardBank": { "q4_2025": 7,  "q1_2026": 7,  "change": 0 },
-    "nedbank":      { "q4_2025": 4,  "q1_2026": 4,  "change": 0 },
-    "tymeBank":     { "q4_2025": 2,  "q1_2026": 2,  "change": 0 },
-    "yoco":         { "q4_2025": 10, "q1_2026": 10, "change": 0 },
-    "peachPayments":{ "q4_2025": 7,  "q1_2026": 7,  "change": 0 }
+    "fnb": {
+      "q4_2025": 13,
+      "q1_2026": 12,
+      "change": -8
+    },
+    "absa": {
+      "q4_2025": 1,
+      "q1_2026": 26,
+      "change": 2500
+    },
+    "standardBank": {
+      "q4_2025": 7,
+      "q1_2026": 35,
+      "change": 400
+    },
+    "nedbank": {
+      "q4_2025": 4,
+      "q1_2026": 31,
+      "change": 675
+    },
+    "tymeBank": {
+      "q4_2025": 2,
+      "q1_2026": 16,
+      "change": 700
+    },
+    "yoco": {
+      "q4_2025": 10,
+      "q1_2026": 30,
+      "change": 200
+    },
+    "peachPayments": {
+      "q4_2025": 7,
+      "q1_2026": 38,
+      "change": 443
+    }
   },
   "ghostTable": {
     "fnb": 67,
@@ -27,32 +55,141 @@
   "leagueTable": {
     "month": "April 2026",
     "innovation": [
-      { "rank": 1, "company": "TymeBank", "score": 87, "change": "up" },
-      { "rank": 2, "company": "Yoco", "score": 82, "change": "up" },
-      { "rank": 3, "company": "Peach Payments", "score": 76, "change": "same" },
-      { "rank": 4, "company": "FNB", "score": 61, "change": "down" },
-      { "rank": 5, "company": "Standard Bank", "score": 54, "change": "down" },
-      { "rank": 6, "company": "Absa", "score": 49, "change": "same" },
-      { "rank": 7, "company": "Nedbank", "score": 41, "change": "down" }
+      {
+        "rank": 1,
+        "company": "TymeBank",
+        "score": 87,
+        "change": "up"
+      },
+      {
+        "rank": 2,
+        "company": "Yoco",
+        "score": 82,
+        "change": "up"
+      },
+      {
+        "rank": 3,
+        "company": "Peach Payments",
+        "score": 76,
+        "change": "same"
+      },
+      {
+        "rank": 4,
+        "company": "FNB",
+        "score": 61,
+        "change": "down"
+      },
+      {
+        "rank": 5,
+        "company": "Standard Bank",
+        "score": 54,
+        "change": "down"
+      },
+      {
+        "rank": 6,
+        "company": "Absa",
+        "score": 49,
+        "change": "same"
+      },
+      {
+        "rank": 7,
+        "company": "Nedbank",
+        "score": 41,
+        "change": "down"
+      }
     ],
     "legacy": [
-      { "rank": 1, "company": "Nedbank", "score": 78, "change": "same" },
-      { "rank": 2, "company": "Absa", "score": 71, "change": "up" },
-      { "rank": 3, "company": "Standard Bank", "score": 66, "change": "same" },
-      { "rank": 4, "company": "FNB", "score": 58, "change": "down" },
-      { "rank": 5, "company": "TymeBank", "score": 12, "change": "same" },
-      { "rank": 6, "company": "Yoco", "score": 8, "change": "same" },
-      { "rank": 7, "company": "Peach Payments", "score": 5, "change": "same" }
+      {
+        "rank": 1,
+        "company": "Nedbank",
+        "score": 78,
+        "change": "same"
+      },
+      {
+        "rank": 2,
+        "company": "Absa",
+        "score": 71,
+        "change": "up"
+      },
+      {
+        "rank": 3,
+        "company": "Standard Bank",
+        "score": 66,
+        "change": "same"
+      },
+      {
+        "rank": 4,
+        "company": "FNB",
+        "score": 58,
+        "change": "down"
+      },
+      {
+        "rank": 5,
+        "company": "TymeBank",
+        "score": 12,
+        "change": "same"
+      },
+      {
+        "rank": 6,
+        "company": "Yoco",
+        "score": 8,
+        "change": "same"
+      },
+      {
+        "rank": 7,
+        "company": "Peach Payments",
+        "score": 5,
+        "change": "same"
+      }
     ],
     "gradFriendly": [
-      { "rank": 1, "company": "FNB", "score": 74, "change": "up" },
-      { "rank": 2, "company": "Standard Bank", "score": 68, "change": "same" },
-      { "rank": 3, "company": "TymeBank", "score": 65, "change": "up" },
-      { "rank": 4, "company": "Absa", "score": 60, "change": "down" },
-      { "rank": 5, "company": "Nedbank", "score": 52, "change": "same" },
-      { "rank": 6, "company": "Yoco", "score": 41, "change": "up" },
-      { "rank": 7, "company": "Peach Payments", "score": 28, "change": "same" }
+      {
+        "rank": 1,
+        "company": "FNB",
+        "score": 74,
+        "change": "up"
+      },
+      {
+        "rank": 2,
+        "company": "Standard Bank",
+        "score": 68,
+        "change": "same"
+      },
+      {
+        "rank": 3,
+        "company": "TymeBank",
+        "score": 65,
+        "change": "up"
+      },
+      {
+        "rank": 4,
+        "company": "Absa",
+        "score": 60,
+        "change": "down"
+      },
+      {
+        "rank": 5,
+        "company": "Nedbank",
+        "score": 52,
+        "change": "same"
+      },
+      {
+        "rank": 6,
+        "company": "Yoco",
+        "score": 41,
+        "change": "up"
+      },
+      {
+        "rank": 7,
+        "company": "Peach Payments",
+        "score": 28,
+        "change": "same"
+      }
     ]
   },
-  "sources": ["PNet", "Careers24", "Graduates24"]
+  "sources": [
+    "PNet",
+    "Careers24",
+    "Graduates24"
+  ]
 }

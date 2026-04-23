@@ -23,8 +23,11 @@ jobs:
           pip install playwright pandas requests
           playwright install chromium
 
-      - name: Run scraper
+      - name: Run job scraper
         run: python scripts/scraper.py
+
+      - name: Run news scraper
+        run: python scripts/news_scraper.py
 
       - name: Commit updated data
         run: |

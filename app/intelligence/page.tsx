@@ -13,14 +13,16 @@ export default async function IntelligencePage() {
           Data-backed audits. No fluff. Updated weekly.
         </p>
       </div>
+
       <div className="lt-shortcut">
-          <Link href="/intelligence/league-table" className="lt-shortcut-link">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M7 14l5-5 5 5H7z"/>
-            </svg>
-            View April 2026 League Table →
-          </Link>
-        </div>
+        <Link href="/intelligence/league-table" className="lt-shortcut-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 14l5-5 5 5H7z"/>
+          </svg>
+          April 2026 League Table →
+        </Link>
+      </div>
+
       <div className="intel-list">
         {audits.map((audit) => (
           <Link
@@ -30,6 +32,7 @@ export default async function IntelligencePage() {
           >
             <div className="audit-card-top">
               <span className="audit-track">{audit.track}</span>
+              <span className="audit-category">{audit.category}</span>
               <span className="audit-date">{audit.date}</span>
             </div>
             <h2 className="audit-card-title">{audit.title}</h2>

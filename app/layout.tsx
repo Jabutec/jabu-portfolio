@@ -3,6 +3,7 @@
 import "./globals.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -83,6 +84,7 @@ export default function RootLayout({
             <span className="tab-label">About</span>
           </Link>
         </nav>
+        <Analytics />
       </body>
     </html>
   );

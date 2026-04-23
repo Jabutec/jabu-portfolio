@@ -8,6 +8,7 @@ export type Audit = {
   slug: string;
   title: string;
   track: string;
+  category: string;
   date: string;
   verdict: string;
   summary: string;
@@ -27,6 +28,7 @@ export async function getAudits(): Promise<Audit[]> {
         slug,
         title: data.title,
         track: data.track,
+        category: data.category || "General",
         date: new Date(data.date).toISOString().split("T")[0],
         verdict: data.verdict,
         summary: data.summary,

@@ -5,9 +5,42 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import TransferChart from "@/components/TransferChart";
+import type { Metadata } from "next";
 
 const auditsDir = path.join(process.cwd(), "content/intelligence");
 const signalsPath = path.join(process.cwd(), "data/signals.json");
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const filePath = path.join(auditsDir, `${slug}.mdx`);
+
+  if (!fs.existsSync(filePath)) return {};
+
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const { data } = matter(raw);
+
+  return {
+    title: `${data.title} | Signal.ZA`,
+    description: data.summary,
+    openGraph: {
+      title: data.title,
+      description: data.summary,
+      images: data.image ? [{ url: data.image }] : [],
+      type: "article",
+      siteName: "Signal.ZA",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: data.title,
+      description: data.summary,
+      images: data.image ? [data.image] : [],
+    },
+  };
+}
 
 
 
@@ -42,6 +75,10 @@ export default async function AuditPage({
       change: val.change,
     })
   );
+  {/* Only show chart on Transfer Market posts */}
+{data.track === "Transfer Market" && (
+  <TransferChart data={chartData} />
+)}
 
   return (
     <main className="audit-post">
@@ -60,7 +97,11 @@ export default async function AuditPage({
         <p className="audit-post-summary">{data.summary}</p>
       </div>
 
-      <TransferChart data={chartData} />
+            {data.image && (
+        <div className="audit-post-image">
+          <img src={data.image} alt={data.title} />
+        </div>
+      )}
 
       <div className="audit-post-body">
         <MDXRemote source={content} />

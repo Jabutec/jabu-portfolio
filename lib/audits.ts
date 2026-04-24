@@ -12,6 +12,7 @@ export type Audit = {
   date: string;
   verdict: string;
   summary: string;
+  image: string;
 };
 
 export async function getAudits(): Promise<Audit[]> {
@@ -32,6 +33,7 @@ export async function getAudits(): Promise<Audit[]> {
         date: new Date(data.date).toISOString().split("T")[0],
         verdict: data.verdict,
         summary: data.summary,
+        image: data.image || "",
       };
     })
     .sort((a, b) => (a.date > b.date ? -1 : 1));

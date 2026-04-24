@@ -67,7 +67,25 @@ def scrape_source(page, name: str, url: str):
         content = page.inner_text("body").lower()
         lines = [l.strip() for l in content.split("\n") if l.strip()]
 
-        signals = []
+        NOISE_KEYWORDS = [
+            "sign up",
+            "privacy policy",
+            "terms of service",
+            "subscribe",
+            "newsletter",
+            "cookie",
+            "living on $",
+            "quit our jobs",
+            "debt after",
+            "travel in our",
+            "fire dreams",
+            "clicking",
+        ]
+        signals = [
+            s
+            for s in signals
+            if not any(n in s["headline"].lower() for n in NOISE_KEYWORDS)
+        ]
         for line in lines:
             if any(kw in line for kw in SIGNAL_KEYWORDS):
                 if 20 < len(line) < 200:
@@ -91,21 +109,96 @@ def scrape_source(page, name: str, url: str):
 
 # ── Auto categorise by keyword ────────────────────────────
 def categorise(line: str) -> str:
+    line = line.lower()
+
+    # Must check funding first — most specific
     if any(
         k in line
-        for k in ["raised", "funding", "million", "investment", "seed", "series"]
+        for k in [
+            "raises",
+            "raised",
+            "funding",
+            "seed",
+            "series a",
+            "series b",
+            "million",
+            "investment",
+            "venture capital",
+            "prize",
+            "grant",
+        ]
     ):
         return "Funding"
+
+    # Events
     if any(
-        k in line for k in ["ai", "artificial intelligence", "machine learning", "llm"]
+        k in line
+        for k in [
+            "summit",
+            "conference",
+            "hackathon",
+            "meetup",
+            "game jam",
+            "event",
+            "workshop",
+            "apply to pitch",
+            "applications open",
+        ]
+    ):
+        return "Events"
+
+    # Build Log
+    if any(
+        k in line
+        for k in [
+            "launches",
+            "launch",
+            "founded",
+            "new product",
+            "platform",
+            "marketplace",
+            "building",
+            "built",
+            "ships",
+            "released",
+        ]
+    ):
+        return "Build Log"
+
+    # AI Watch — only actual AI content
+    if any(
+        k in line
+        for k in [
+            "artificial intelligence",
+            " ai ",
+            "machine learning",
+            "llm",
+            "large language model",
+            "chatgpt",
+            "claude",
+            "openai",
+            "anthropic",
+            "generative",
+        ]
     ):
         return "AI Watch"
-    if any(k in line for k in ["conference", "summit", "hackathon", "meetup", "event"]):
-        return "Events"
-    if any(k in line for k in ["launch", "new product", "founded", "startup"]):
-        return "Build Log"
-    if any(k in line for k in ["microsoft", "google", "amazon", "meta"]):
+
+    # Global Signal
+    if any(
+        k in line
+        for k in [
+            "microsoft",
+            "google",
+            "amazon",
+            "meta",
+            "apple",
+            "global",
+            "worldwide",
+            "international",
+        ]
+    ):
         return "Global Signal"
+
     return "General"
 
 

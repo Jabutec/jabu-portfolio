@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-04-28",
+  "lastUpdated": "2026-04-29",
   "transferMarket": {
     "fnb": {
       "q4_2025": 13,
-      "q1_2026": 13,
-      "change": 0
+      "q1_2026": 15,
+      "change": 15
     },
     "absa": {
       "q4_2025": 1,

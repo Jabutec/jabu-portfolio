@@ -170,11 +170,51 @@ body {
 
   .main-content {
     margin-left: 0;
-    padding-bottom: 72px;
+    width: 100%;
+    padding-bottom: 88px;
   }
 
   .tab-bar {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tab-item {
+    padding: 8px 4px;
+  }
+
+  .intel-feed,
+  .audit-post,
+  .lt-page,
+  .about-page {
+    width: 100%;
+    padding: 1.5rem 1rem;
+  }
+
+  .intel-title,
+  .lt-title {
+    font-size: 24px;
+  }
+
+  .audit-post-title {
+    font-size: 20px;
+  }
+
+  .audit-post-body {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .audit-post-image {
+    height: 220px;
+  }
+
+  .animate-fadeIn {
+    animation: none;
+  }
+
+  .status-dot {
+    animation: none;
   }
 }
 
@@ -595,29 +635,7 @@ body {
 .lt-change.down { color: #FF4D6D; }
 .lt-change.same { color: #8b949e; }
 
-@media (max-width: 768px) {
-  .audit-post-body {
-    font-size: 16px;
-    line-height: 2;
-  }
 
-  .audit-post-title {
-    font-size: 20px;
-  }
-
-  .main-content {
-    margin-left: 0;
-    padding-bottom: 80px;
-  }
-
-  .tab-bar {
-    display: flex;
-  }
-
-  .sidebar {
-    display: none;
-  }
-}
 .sidebar-sublink {
   margin-left: 16px;
   padding-left: 10px;

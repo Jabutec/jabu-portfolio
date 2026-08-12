@@ -52,8 +52,7 @@ export default function Home() {
               {"    "}<span className="text-green-400">getCareerObjectives</span>() {"{"}{"\n"}
               {"      "}<span className="text-purple-400">return</span> ({"\n"}
               {"        "}<span className="text-yellow-300">"Motivated IT graduate from North-West University,"</span>{"\n"}
-              {"        "}<span className="text-yellow-300">"specialising in Systems Development and Business Intelligence,"</span>{"\n"}
-              {"        "}<span className="text-yellow-300">"graduating May 2026."</span>{"\n"}
+              {"        "}<span className="text-yellow-300">"specialising in Systems Development, Data and Business Intelligence,"</span>{"\n"}
               {"        "}<span className="text-yellow-300">"Eager to contribute to innovative tech solutions and grow as a developer."</span>{"\n"}
               {"      "});{"\n"}
               {"    "}{"}"}{"\n\n"}
@@ -80,13 +79,6 @@ export default function Home() {
                 <span className="truncate">LinkedIn</span>
               </a>
 
-              <a href="https://x.com/JabuTech" target="_blank"
-                className="flex items-center gap-[9px] h-[42px] px-[14px] rounded-[10px] bg-[#1a2744] border border-[#2a3a60] text-blue-400 text-[13px] font-medium hover:bg-blue-800 hover:border-blue-500 hover:text-white transition duration-200 hover:-translate-y-px active:scale-95 min-w-0">
-                <svg className="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
-                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-                </svg>
-                <span className="truncate">X</span>
-              </a>
 
               <a href="mailto:mokoenajabulani730@email.com"
                 className="flex items-center gap-[9px] h-[42px] px-[14px] rounded-[10px] bg-[#1a2744] border border-[#2a3a60] text-blue-400 text-[13px] font-medium hover:bg-blue-800 hover:border-blue-500 hover:text-white transition duration-200 hover:-translate-y-px active:scale-95 min-w-0">
@@ -97,21 +89,6 @@ export default function Home() {
                 <span className="truncate">Email</span>
               </a>
 
-              <a href="tel:+27735347153"
-                className="flex items-center gap-[9px] h-[42px] px-[14px] rounded-[10px] bg-[#1a2744] border border-[#2a3a60] text-blue-400 text-[13px] font-medium hover:bg-blue-800 hover:border-blue-500 hover:text-white transition duration-200 hover:-translate-y-px active:scale-95 min-w-0">
-                <svg className="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                </svg>
-                <span className="truncate">+27 73 534 7153</span>
-              </a>
-
-              <a href="/Jabulani_Mokoena_CV.pdf" download
-                className="col-span-3 flex items-center justify-center gap-2 h-[42px] rounded-[10px] bg-green-900 border border-green-700 text-green-200 text-[13px] font-semibold hover:bg-green-800 hover:border-green-500 hover:text-white transition duration-200 hover:-translate-y-px active:scale-95">
-                <svg className="w-[15px] h-[15px] fill-current flex-shrink-0" viewBox="0 0 24 24">
-                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                </svg>
-                Download CV
-              </a>
 
             </div>
 
@@ -125,25 +102,18 @@ export default function Home() {
             <div className="ml-8 my-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 {
-                  name: "Beauty Platform",
-                  desc: "A full-featured salon booking and inspiration platform where users can discover styles, book appointments, and stylists can manage their portfolios.",
-                  stack: ["Next.js", "Node.js", "Cloudinary"],
-                  demo: "https://github.com/Jabutec/kefresh",
-                  github: "https://github.com/Jabutec/kefresh",
+                    name: "StockFlow",
+                    desc: "A business management system for managing inventory, customers, and sales, built as a growing Python application.",
+                    stack: ["Python", "JSON", "Git"],
+                    github: "https://github.com/Jabutec/stockflow",
+
                 },
                 {
-                  name: "Student Portal",
-                  desc: "An integrated learning system combining theory modules and practical exercises with progress tracking and assessment tools for students and educators.",
-                  stack: ["React", "Node.js", "MySQL"],
-                  demo: "https://github.com/Jabutec/ai-agents",
-                  github: "https://github.com/Jabutec/ai-agents",
-                },
-                {
-                  name: "Data Dashboard",
-                  desc: "An analytics dashboard surfacing labour market trends and inflation insights through interactive visualisations built with Python and Power BI.",
-                  stack: ["Python", "Power BI"],
-                  demo: "https://github.com/Jabutec/Labour-Market-Trends-Business-Impact-Analysis",
-                  github: "https://github.com/Jabutec/Labour-Market-Trends-Business-Impact-Analysis",
+                    name: "Capital Signal",
+                    desc: "A business financial intelligence platform that turns fragmented transaction data into a clear financial picture for better business and financial decision-making.",
+                    stack: ["Python", "SQL", "PostgreSQL"],
+                    github: "https://github.com/Jabutec/capital-signal",
+
                 },
               ].map((project) => (
                 <div

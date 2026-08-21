@@ -1,40 +1,40 @@
 {
-  "lastUpdated": "2026-08-20",
+  "lastUpdated": "2026-08-21",
   "transferMarket": {
     "fnb": {
       "q4_2025": 13,
       "q1_2026": 34,
-      "change": 42
+      "change": 0
     },
     "absa": {
       "q4_2025": 1,
-      "q1_2026": 14,
-      "change": 8
+      "q1_2026": 36,
+      "change": 157
     },
     "standardBank": {
       "q4_2025": 7,
-      "q1_2026": 4,
-      "change": -69
+      "q1_2026": 8,
+      "change": 100
     },
     "nedbank": {
       "q4_2025": 4,
-      "q1_2026": 33,
-      "change": 154
+      "q1_2026": 12,
+      "change": -64
     },
     "tymeBank": {
       "q4_2025": 2,
-      "q1_2026": 18,
-      "change": 6
+      "q1_2026": 12,
+      "change": -33
     },
     "yoco": {
       "q4_2025": 10,
-      "q1_2026": 14,
-      "change": 8
+      "q1_2026": 12,
+      "change": -14
     },
     "peachPayments": {
       "q4_2025": 7,
-      "q1_2026": 37,
-      "change": -8
+      "q1_2026": 8,
+      "change": -78
     }
   },
   "ghostTable": {

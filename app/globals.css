@@ -11,9 +11,12 @@
 *::after {
   box-sizing: border-box;
 }
-
+@layer base {
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 body {
@@ -21,4 +24,14 @@ body {
   background: #ffffff;
   color: #0a0a0a;
   font-family: var(--font-sans);
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  min-height: 100dvh;
+  touch-action: pan-y;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
 }

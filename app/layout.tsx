@@ -1,6 +1,14 @@
 // app/layout.tsx
+import type { Viewport } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata = {
   title: "Jabulani Mokoena",

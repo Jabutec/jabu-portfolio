@@ -3,7 +3,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden px-6 pb-24 pt-32 sm:px-8 lg:px-12"
+      className="relative flex min-h-screen w-full items-center overflow-hidden px-6 pb-24 pt-32 sm:px-8 lg:px-12"
     >
       {/* Background image — shifted on mobile so the dark LEFT side sits behind text */}
       <div className="absolute inset-0 z-0 h-full w-full">
@@ -11,9 +11,6 @@ export default function Hero() {
           src="/hero.jpg"
           alt=""
           className="h-full w-full object-cover object-[22%_center] sm:object-center"
-          style={{
-            imageRendering: '-webkit-optimize-contrast',
-          }}
           loading="eager"
           decoding="async"
         />

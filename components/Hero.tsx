@@ -3,14 +3,14 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100dvh] items-center overflow-hidden px-6 pb-24 pt-32 sm:px-8 lg:px-12"
+      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden px-6 pb-24 pt-32 sm:px-8 lg:px-12"
     >
-      {/* Background image — constrained so Safari doesn't zoom out */}
+      {/* Background image — shifted on mobile so the dark LEFT side sits behind text */}
       <div className="absolute inset-0 z-0 h-full w-full">
         <img
           src="/hero.jpg"
           alt=""
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-[22%_center] sm:object-center"
           style={{
             imageRendering: '-webkit-optimize-contrast',
           }}
@@ -19,8 +19,17 @@ export default function Hero() {
         />
       </div>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 z-10 bg-black/70" />
+      {/* Overlay — lighter so the picture shows through */}
+      <div className="absolute inset-0 z-10 bg-black/60" />
+      
+      {/* Subtle left-side gradient for text legibility only */}
+      <div
+        className="absolute inset-0 z-10 hidden sm:block"
+        style={{
+          background:
+            'linear-gradient(to right, rgba(0,0,0,0.35) 0%, transparent 60%)',
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-20 mx-auto w-full max-w-7xl">
@@ -29,16 +38,19 @@ export default function Hero() {
             Software · Data · Cloud
           </p>
 
-          <h1 className="text-white">
-            <span className="block text-3xl font-light uppercase tracking-wide sm:text-4xl lg:text-5xl">
+          <h1 className="text-white" style={{ textShadow: '0 2px 24px rgba(0,0,0,0.6)' }}>
+            <span className="block text-4xl font-light uppercase tracking-wide sm:text-4xl lg:text-5xl">
               Jabulani
             </span>
-            <span className="block text-5xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="block text-6xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
               Mokoena
             </span>
           </h1>
 
-          <p className="mt-4 text-sm font-medium uppercase tracking-[0.25em] text-white/75 sm:text-base">
+          <p
+            className="mt-4 text-base font-medium uppercase tracking-[0.25em] text-white/75 sm:text-base"
+            style={{ textShadow: '0 1px 12px rgba(0,0,0,0.5)' }}
+          >
             Software & Data Developer
           </p>
 

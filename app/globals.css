@@ -6,31 +6,30 @@
   --font-display: "General Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 @layer base {
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
-  overscroll-behavior: none;
-}
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: hidden;
+    /* Only lock horizontal overscroll — keep vertical iOS bounce */
+    overscroll-behavior-x: none;
+  }
 
-body {
-  margin: 0;
-  background: #ffffff;
-  color: #0a0a0a;
-  font-family: var(--font-sans);
-  overflow-x: hidden;
-  overscroll-behavior-x: none;
-  min-height: 100dvh;
-  touch-action: pan-y;
-}
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: #0a0a0a;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+    min-height: 100dvh;
+    /* Lock horizontal swipe/shake, allow vertical scroll */
+    touch-action: pan-y;
+  }
 
-img {
+  img,
+  video {
     max-width: 100%;
     height: auto;
   }

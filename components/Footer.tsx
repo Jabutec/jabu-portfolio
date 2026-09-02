@@ -22,7 +22,7 @@ export default function Footer() {
           </a>
           
           <a
-            href="mailto:hello@example.com"
+            href="mailto:mokoenajabulani730@example.com"
             className="transition-colors hover:text-[#0f766e]"
           >
             Contact ↗

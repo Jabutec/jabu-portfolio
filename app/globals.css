@@ -9,10 +9,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+    /* Nuclear option — Safari MUST respect your font sizes */
+    -webkit-text-size-adjust: none !important;
+    text-size-adjust: none !important;
     overflow-x: hidden;
-    /* Only lock horizontal overscroll — keep vertical iOS bounce */
     overscroll-behavior-x: none;
   }
 
@@ -24,13 +24,24 @@
     overflow-x: hidden;
     overscroll-behavior-x: none;
     min-height: 100dvh;
-    /* Lock horizontal swipe/shake, allow vertical scroll */
     touch-action: pan-y;
+    /* Prevent any implicit zoom */
+    width: 100%;
+    min-width: 0;
   }
 
   img,
-  video {
+  video,
+  svg {
     max-width: 100%;
     height: auto;
+    display: block;
+  }
+
+  /* Force all text containers to shrink properly on iOS */
+  p, h1, h2, h3, h4, h5, h6, span, a, li, div {
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }

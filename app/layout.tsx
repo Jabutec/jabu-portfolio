@@ -6,8 +6,11 @@ import { Analytics } from "@vercel/analytics/react";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  minimumScale: 1,
   maximumScale: 1,
   viewportFit: "cover",
+  // @ts-ignore — shrink-to-fit is deprecated but still respected by older iOS
+  shrinkToFit: "no",
 };
 
 export const metadata = {
@@ -28,10 +31,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
-        {children}
-        <Analytics />
-      </body>
+      <body>{children}<Analytics /></body>
     </html>
   );
 }

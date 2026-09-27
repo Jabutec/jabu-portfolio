@@ -3,7 +3,9 @@ import Hero from "@/components/Hero";
 import Philosophy from "@/components/Philosophy";
 import CaseStudies from "@/components/CaseStudies";
 import Flexure from "@/components/Flexure";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+
 
 export default function Home() {
   return (
@@ -13,6 +15,7 @@ export default function Home() {
       <Philosophy />
       <CaseStudies />
       <Flexure />
+      <Contact />
       <Footer />
     </main>
   );

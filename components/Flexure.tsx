@@ -1,9 +1,36 @@
 // components/Flexure.tsx
+const highlights = [
+  {
+    year: "Present",
+    title: "Freelance web development",
+    bullets: [
+      "Designed and developed websites for clients across small-business sectors, delivering tailored web solutions based on individual business needs.",
+      "Helped clients establish and improve their digital presence, including Google Business Profiles, WhatsApp Business, and professional social media accounts.",
+      "Managed projects independently from initial requirements and development through delivery and client support.",
+    ],
+  },
+  {
+    year: "2025",
+    title: "Geekulcha Hackathon",
+    bullets: [
+      "Took part in an in-school Geekulcha hackathon, building a services platform connecting students with support like tutoring.",
+      "Worked on the backend, including an AI assistant built into the platform.",
+    ],
+  },
+  {
+    year: "2025",
+    title: "Student learning platform",
+    bullets: [
+      "Contributed to a full-stack learning platform built for tech students, working on the frontend.",
+    ],
+  },
+];
+
 export default function Flexure() {
   return (
     <section id="flexure" className="border-t border-black/5 bg-white">
       <div className="mx-auto max-w-7xl px-6 py-28 sm:px-8 lg:px-12">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
           {/* Left — identity + CTA */}
           <div>
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.18em] text-[#6b7280]">
@@ -30,36 +57,31 @@ export default function Flexure() {
             </a>
           </div>
 
-          {/* Right — ZakaScore highlight card */}
+          {/* Right — career highlights, a real sequence so the timeline device is earned */}
           <div className="rounded-3xl border border-black/5 bg-[#fafafa] p-8 sm:p-10">
-            <div className="flex items-center gap-3">
-              <span className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500" />
-              <span className="text-xs font-medium uppercase tracking-widest text-[#9ca3af]">
-                Currently shipping
-              </span>
-            </div>
-
-            <h3 className="mt-6 text-2xl font-semibold tracking-tight text-[#111827]">
-              ZakaScore
-            </h3>
-            <p className="mt-1 text-sm font-medium text-[#6b7280]">
-              Localized financial analytics
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-[#6b7280]">
-              Lightweight financial intelligence and credit-scoring platform for
-              micro-merchants. A localized analytics engine that lets small
-              businesses track cash flow, evaluate credit risk, and manage
-              merchant metrics with minimal friction.
+            <p className="text-xs font-medium uppercase tracking-widest text-[#9ca3af]">
+              Career highlights
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {['Next.js', 'FastAPI', 'SQLite', 'Supabase'].map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-medium text-[#374151]"
-                >
-                  {tag}
-                </span>
+            <div className="relative mt-6 space-y-10 border-l-2 border-[#C1592D]/25 pl-6">
+              {highlights.map((item) => (
+                <div key={item.title} className="relative">
+                  <span className="absolute -left-[27px] top-1 h-3 w-3 rounded-full bg-[#C1592D]" />
+                  <p className="text-xs text-[#9ca3af]">{item.year}</p>
+                  <h3 className="mt-1 text-lg font-semibold tracking-tight text-[#111827]">
+                    {item.title}
+                  </h3>
+                  <ul className="mt-3 space-y-2">
+                    {item.bullets.map((bullet) => (
+                      <li
+                        key={bullet}
+                        className="text-sm leading-relaxed text-[#6b7280]"
+                      >
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
           </div>
